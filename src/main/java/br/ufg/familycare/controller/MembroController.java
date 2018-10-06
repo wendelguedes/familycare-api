@@ -18,8 +18,7 @@ import br.ufg.familycare.service.MembroService;
 import io.swagger.annotations.Api;
 
 @RestController
-@Api(value = "Guidelines", description = "Describes the guidelines for "
-		+ " Spring boot 2.0.1 for uploading large file using Swagger UI")
+@Api(value = "Guidelines", description = "Cadastro de Membros")
 public class MembroController {
 
 	@Autowired
@@ -35,7 +34,7 @@ public class MembroController {
 		return membroService.consultar(id).get();
 	}
 
-	@PutMapping("/mebros/{id}")
+	@PutMapping("/membros/{id}")
 	Membro alterarMembro(@Valid Membro novoMembro, @PathVariable Long id) {
 
 		return membroService.consultar(id)

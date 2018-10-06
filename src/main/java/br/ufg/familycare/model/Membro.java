@@ -13,6 +13,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Type;
+
 import br.ufg.familycare.enuns.Sexo;
 import lombok.Data;
 
@@ -24,18 +26,18 @@ public class Membro {
 	@GeneratedValue
 	private Long id;
 
-	@NotNull(message="A data de nascimento é obrigatória")
+	@NotNull(message="{data-nascimento.notnull}")
 	private Date dataNascimento;
 
 	@NotBlank(message="{nome.notblank}")
 	@Size(min=1,max=255, message="{nome.size}")
 	private String nome;
 
-	@Email(message="Informe um e-mail válido.")
-	@Size(min=0,max=255, message="O e-mail do membro ultrapassou o limite de 255 caracteres.")
+	@Email(message="{email.valido}")
+	@Size(min=0,max=255, message="{email.size}")
 	private String email;
 
-	@Size(min=0,max=20, message="O telefone do membro ultrapassou o limite de 20 caracteres.")
+	@Size(min=0,max=20, message="{telefone.size}")
 	private String telefone;
 
 	private BigDecimal peso;
@@ -45,7 +47,7 @@ public class Membro {
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 
-	@Size(min=1,max=255, message="O nome da imagem de perfil ultrapassou o limite de 255 caracteres.")
+	@Type(type = "org.hibernate.type.TextType")
 	private String imagemPerfil;
 
 }

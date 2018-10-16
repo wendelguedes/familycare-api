@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.ufg.familycare.model.Membro;
-import br.ufg.familycare.model.Usuario;
 import br.ufg.familycare.service.MembroService;
 import io.swagger.annotations.Api;
 

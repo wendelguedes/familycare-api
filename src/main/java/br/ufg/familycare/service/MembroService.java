@@ -19,15 +19,15 @@ public class MembroService {
 		return membroRepository.save(membro);
 	}
 
-	public Optional<Membro> consultar(Long id) {
+	public Optional<Membro> consultarPorId(Long id) {
 		return membroRepository.findById(id);
 	}
 
-	public List<Membro> listar() {
-		return (List<Membro>) membroRepository.findAll();
+	public List<Membro> listarTodos() {
+		return membroRepository.findAll();
 	}
 
-	public void remover(Long id) {
+	public void deletarPorId(Long id) {
 		membroRepository.deleteById(id);
 	}
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.ufg.familycare.model.Membro;
+import br.ufg.familycare.model.Usuario;
 import br.ufg.familycare.service.MembroService;
 import io.swagger.annotations.Api;
 
@@ -30,31 +31,22 @@ public class MembroController {
 	}
 
 	@GetMapping("/membros/{id}")
-	Membro consultar(@PathVariable Long id) {
-		return membroService.consultar(id).get();
+	Membro consultarPorId(@PathVariable Long id) {
+		return membroService.consultarPorId(id).get();
 	}
-
+	
 	@PutMapping("/membros/{id}")
-	Membro alterarMembro(@Valid Membro novoMembro, @PathVariable Long id) {
-
-		return membroService.consultar(id)
-				.map(membro -> {
-					membro.setNome(novoMembro.getNome());
-					return membroService.salvar(membro);
-				})
-				.orElseGet(() -> {
-					novoMembro.setId(id);
-					return membroService.salvar(novoMembro);
-				});
+	Membro alterarMembro(@Valid Membro membro, @PathVariable Long id) {
+		return membroService.salvar(membro);
 	}
 
 	@GetMapping("/membros")
-	List<Membro> listar() {
-		return membroService.listar();
+	List<Membro> listarTodos() {
+		return membroService.listarTodos();
 	}
 
 	@DeleteMapping("/membros/{id}")
-	void removerMembro(@PathVariable Long id) {
-		membroService.remover(id);
+	void deletarPorId(@PathVariable Long id) {
+		membroService.deletarPorId(id);
 	}
 }

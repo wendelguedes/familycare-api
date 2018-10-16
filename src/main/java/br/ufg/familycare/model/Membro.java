@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Type;
 
-import br.ufg.familycare.enuns.Sexo;
+import br.ufg.familycare.enums.EnumSexo;
 import lombok.Data;
 
 @Entity
@@ -45,7 +45,7 @@ public class Membro {
 	private BigDecimal Altura;
 
 	@Enumerated(EnumType.STRING)
-	private Sexo sexo;
+	private EnumSexo sexo;
 
 	@Type(type = "org.hibernate.type.TextType")
 	private String imagemPerfil;

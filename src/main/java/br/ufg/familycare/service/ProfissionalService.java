@@ -19,15 +19,15 @@ public class ProfissionalService {
 		return profissionalRepository.save(profissional);
 	}
 
-	public Optional<Profissional> consultar(Long id) {
+	public Optional<Profissional> consultarPorId(Long id) {
 		return profissionalRepository.findById(id);
 	}
 
-	public List<Profissional> listar() {
-		return (List<Profissional>) profissionalRepository.findAll();
+	public List<Profissional> listarTodos() {
+		return profissionalRepository.findAll();
 	}
 
-	public void remover(Long id) {
+	public void deletarPorId(Long id) {
 		profissionalRepository.deleteById(id);
 	}
 

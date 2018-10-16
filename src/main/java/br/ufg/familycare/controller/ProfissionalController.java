@@ -30,31 +30,22 @@ public class ProfissionalController {
 	}
 
 	@GetMapping("/profissionais/{id}")
-	Profissional consultar(@PathVariable Long id) {
-		return profissionalService.consultar(id).get();
+	Profissional consultarPorId(@PathVariable Long id) {
+		return profissionalService.consultarPorId(id).get();
 	}
 
 	@PutMapping("/profissionais/{id}")
-	Profissional alterarProfissional(@Valid Profissional novoProfissional, @PathVariable Long id) {
-
-		return profissionalService.consultar(id)
-				.map(profissional -> {
-					profissional.setNome(novoProfissional.getNome());
-					return profissionalService.salvar(profissional);
-				})
-				.orElseGet(() -> {
-					novoProfissional.setId(id);
-					return profissionalService.salvar(novoProfissional);
-				});
+	Profissional alterarProfissional(@Valid Profissional profissional, @PathVariable Long id) {
+		return profissionalService.salvar(profissional);
 	}
 
 	@GetMapping("/profissionais")
-	List<Profissional> listar() {
-		return profissionalService.listar();
+	List<Profissional> listarTodos() {
+		return profissionalService.listarTodos();
 	}
 
 	@DeleteMapping("/profissionais/{id}")
-	void removerProfissional(@PathVariable Long id) {
-		profissionalService.remover(id);
+	void deletarPorId(@PathVariable Long id) {
+		profissionalService.deletarPorId(id);
 	}
 }

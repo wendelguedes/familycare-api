@@ -10,6 +10,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Type;
+
 import br.ufg.familycare.enums.EnumPerfil;
 import lombok.Data;
 
@@ -32,5 +34,8 @@ public class Usuario {
 	@NotNull(message="{perfil.valido}")
 	@Enumerated(EnumType.STRING)
 	private EnumPerfil perfil;
+	
+	@Type(type = "org.hibernate.type.TextType")
+	private String imagemPerfil;
 
 }

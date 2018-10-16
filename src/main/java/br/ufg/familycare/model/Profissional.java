@@ -24,14 +24,13 @@ public class Profissional {
 	@Email(message="{email.valido}")
 	@Size(min=0,max=255, message="{email.size}")
 	private String email;
+	
+	private String especialidade;
 
-	@Size(min=0,max=20, message="{telefone.size}")
-	private String celular;
+	private String teleCelular;
 
-	@Size(min=0,max=20, message="{telefone.size}")
-	private String telefone;
+	private String telefoneFixo;
 
-	@Size(min=0,max=255, message="{endereco.size}")
 	private String endereco;
 
 }

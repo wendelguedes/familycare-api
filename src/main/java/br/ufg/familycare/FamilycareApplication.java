@@ -23,7 +23,6 @@ public class FamilycareApplication {
 		return args -> {
 			initUsers(usuarioRepository, passwordEncoder);
 		};
-
 	}
 
 	private void initUsers(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {

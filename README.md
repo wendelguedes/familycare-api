@@ -2,9 +2,10 @@
 
 ### Tecnologias:
 
-##### Spring Boot, JPA/Hibernate, PostgreSql, Swagger2 e Lombok.
+##### Spring Boot, Spring Data(JPA/Hibernate), Spring Security, JWT, PostgreSql, Swagger2 e Lombok.
 
 #### Para rodar a aplicação execute em seu terminal o seguinte comando:
+[https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-first-application.html](Documentação)
 
 `mvn spring-boot:run`
 

@@ -29,6 +29,7 @@ public class FamilycareApplication {
 		Usuario UsuarioTemp = usuarioRepository.findByEmail("admin@familycare.com");
 		if (UsuarioTemp == null) {
 			Usuario usuarioAdmin = new Usuario();
+			usuarioAdmin.setNome("Administrador do Sistema");
 			usuarioAdmin.setEmail("admin@familycare.com");
 			usuarioAdmin.setPassword(passwordEncoder.encode("123456"));
 			usuarioAdmin.setPerfil(EnumPerfil.ADMIN);

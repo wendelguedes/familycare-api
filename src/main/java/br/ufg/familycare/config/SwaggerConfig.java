@@ -22,8 +22,7 @@ public class SwaggerConfig {
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors
-						.basePackage("br.ufg.familycare.controller"))
+				.apis(RequestHandlerSelectors.basePackage("br.ufg.familycare"))
 				.paths(PathSelectors.any())
 				.build()
 				.apiInfo(metaData())

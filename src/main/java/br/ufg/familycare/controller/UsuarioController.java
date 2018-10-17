@@ -30,12 +30,19 @@ public class UsuarioController {
 
 	@PostMapping("/usuarios")
 	Usuario cadastrar(@Valid @RequestBody Usuario usuario) {
+		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		return usuarioService.salvar(usuario);
 	}
 
 	@GetMapping("/usuarios/{id}")
 	Usuario consultarPorId(@PathVariable Long id) {
 		return usuarioService.consultarPorId(id).get();
+	}
+
+	@GetMapping("/usuarios/existe/{email}")
+	Boolean usuarioExiste(@PathVariable String email) {
+		Usuario usuario =  usuarioService.consultarPorEmail(email);
+		return usuario != null;
 	}
 
 	@PutMapping("/usuarios/{id}")

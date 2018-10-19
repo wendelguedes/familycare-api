@@ -13,6 +13,9 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Type;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import br.ufg.familycare.enums.EnumPerfil;
 import lombok.Data;
 
@@ -34,6 +37,7 @@ public class Usuario {
 	private String email;
 
 	@Size(min=6,message="{password.size}")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 
 	@NotNull(message="{perfil.valido}")

@@ -21,7 +21,6 @@ public class JwtTokenUtil implements Serializable {
 	static final String CLAIM_KEY_USERNAME = "sub";
 	static final String CLAIM_KEY_CREATED = "created";
 	static final String CLAIM_KEY_EXPIRED = "exp";
-	static final Long EXPIRATION_MULTIPLIER = 1_0000L;
 
 	@Autowired
 	FamilyCareProperties properties;
@@ -78,7 +77,7 @@ public class JwtTokenUtil implements Serializable {
 		final Date createdDate = (Date) claims.get(CLAIM_KEY_CREATED);
 		
 		final Date expirationDate = new Date(
-				createdDate.getTime() + properties.getJwt().getExpiration() * EXPIRATION_MULTIPLIER);
+				createdDate.getTime() + properties.getJwt().getExpiration());
 		
 		return Jwts.builder().setClaims(claims).setExpiration(expirationDate)
 				.signWith(SignatureAlgorithm.HS512, properties.getJwt().getSecret()).compact();

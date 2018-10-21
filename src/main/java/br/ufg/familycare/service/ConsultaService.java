@@ -24,7 +24,8 @@ public class ConsultaService {
 	}
 
 	public List<Consulta> listarTodos() {
-		return consultaRepository.findAll();
+		List<Consulta> consultas = consultaRepository.findAll();
+		return consultas;
 	}
 
 	public void deletarPorId(Long id) {

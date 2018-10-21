@@ -8,7 +8,6 @@ import br.ufg.familycare.model.Consulta;
 
 public interface ConsultaRepository extends CrudRepository<Consulta, Long> {
 
-	@Override
 	List<Consulta> findAll();
 
 }
